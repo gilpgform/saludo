@@ -1,23 +1,19 @@
 import { ProxySaludo } from "./ProxySaludo.js";
 
 /** @type {HTMLFormElement} inNombre */
-const forma = document.querySelector("#forma");
-/** @type {HTMLInputElement} inNombre */
-const inNombre = document.querySelector("#inNombre");
-/** @type {HTMLOutputElement} outSaludo */
-const outSaludo = document.querySelector("#outSaludo");
-
+const forma = document["forma"];
 forma.addEventListener("submit", saluda);
 
 /** @param {Event} evt */
 async function saluda(evt) {
   try {
     evt.preventDefault();
-    const nombre = inNombre.value;
+    const data = new FormData(forma);
+    const nombre = data.get("nombre").toString();
     /** @type {import("../js/Saludo").Saludo} */
     const saludo = new ProxySaludo();
     const respuesta = await saludo.saluda(nombre);
-    outSaludo.value = respuesta;
+    forma.saludo.value = respuesta;
   } catch (e) {
     console.log(e);
     alert(e.message);
