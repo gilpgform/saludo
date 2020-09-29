@@ -5,7 +5,7 @@ const forma = document.querySelector("#forma");
 /** @type {HTMLInputElement} inNombre */
 const inNombre = document.querySelector("#inNombre");
 /** @type {HTMLOutputElement} outSaludo */
-const outSaludo = document.querySelector("#inNombre");
+const outSaludo = document.querySelector("#outSaludo");
 
 forma.addEventListener("submit", saluda);
 
