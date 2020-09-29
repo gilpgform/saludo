@@ -1,5 +1,12 @@
-const { ImplSaludo } = require("./ImplSaludo");
 
+class ImplSaludo {
+  async saluda(nombre) {
+    if (!nombre) {
+      throw new Error("Falta el nombre.");
+    }
+    return `Hola ${nombre}.`;
+  }
+}
 exports.handler = async event => {
   try {
     const nombre = event.queryStringParameters.nombre;
