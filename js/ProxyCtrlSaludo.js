@@ -4,8 +4,9 @@ import { CtrlSaludo } from "./CtrlSaludo.js";
 export class ProxyCtrlSaludo {
   /** @param {string} nombre */
   async calculaSaludo(nombre) {
-    const resp = await fetch("/.netlify/functions/ServicioSaludo?nombre="
-      + encodeURIComponent(nombre));
+    const parámetros = new URLSearchParams();
+    parámetros.append("nombre", nombre);
+    const resp = await fetch("/.netlify/functions/saludo?" + parámetros);
     if (resp.ok) {
       return await resp.text();
     } else if (resp.status === 500) {
