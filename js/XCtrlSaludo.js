@@ -1,6 +1,6 @@
 import { ProxySaludo } from "./ProxySaludo.js";
 
-/** @type {HTMLFormElement} inNombre */
+/** @type {HTMLFormElement} */
 const forma = document["forma"];
 forma.addEventListener("submit", saluda);
 
@@ -10,7 +10,7 @@ async function saluda(evt) {
     evt.preventDefault();
     const data = new FormData(forma);
     const nombre = data.get("nombre").toString();
-    /** @type {import("../js/Saludo").Saludo} */
+    /** @type {import("./Saludo").Saludo} */
     const saludo = new ProxySaludo();
     const respuesta = await saludo.saluda(nombre);
     forma.saludo.value = respuesta;

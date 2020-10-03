@@ -1,0 +1,12 @@
+{
+  "name": "expweb",
+  "description": "Experimentos de servicios web",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gilpgform/saludo.git"
+  },
+  "keywords": [],
+  "author": "Gilberto Pacheco Gallegos",
+  "license": "ISC"
+}

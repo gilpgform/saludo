@@ -1,5 +1,9 @@
-export class ProxySaludo {
-  async saluda(nombre) {
+import { CtrlSaludo } from "./CtrlSaludo.js";
+
+/** @implements {CtrlSaludo} */
+export class ProxyCtrlSaludo {
+  /** @param {string} nombre */
+  async calculaSaludo(nombre) {
     const resp = await fetch("/.netlify/functions/ServicioSaludo?nombre="
       + encodeURIComponent(nombre));
     if (resp.ok) {

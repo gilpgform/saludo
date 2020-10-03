@@ -8,8 +8,8 @@
     <script type="module" src="cmp/mi-footer.js"></script>
   </head>
   <body>
-    <form name="forma">
-      <h1>Saludo con Servicio</h1>
+    <form id="formSaludo">
+      <h1>Saludo</h1>
       <p>
         <label>
           Nombre
@@ -17,13 +17,24 @@
         </label>
       </p>
       <p><button>Calcular</button></p>
-      <p><output name=saludo></output></p>
+      <p><output name="salida"></output></p>
     </form>
-    <footer>
-      <p>
-        <mi-footer></mi-footer>
-      </p>
-    </footer>
-    <script type="module" src="js/ctrlSaludo.js"></script>
+    <script type="module">
+      import { Fabrica } from "/js/Fabrica.js";
+      const fábrica = new Fabrica();
+      const ctrlSaludo = fábrica.ctrlSaludo;
+      formSaludo.addEventListener("submit", async evt => {
+        try {
+          evt.preventDefault();
+          const datos = new FormData(formSaludo);
+          const nombre = datos.get("nombre");
+          const saludo = await ctrlSaludo.calculaSaludo(nombre);
+          formSaludo.salida.value = saludo;          
+        } catch (error) {
+          console.log(error);
+          formSaludo.salida.value = error.message;
+        }
+      });
+    </script>
   </body>
 </html>
