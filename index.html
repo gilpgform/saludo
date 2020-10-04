@@ -8,7 +8,7 @@
     <script type="module" src="cmp/mi-footer.js"></script>
   </head>
   <body>
-    <form id="formSaludo">
+    <form id="forma">
       <h1>Saludo</h1>
       <p>
         <label>
@@ -23,7 +23,7 @@
       import { Fabrica } from "/js/Fabrica.js";
       const fábrica = new Fabrica();
       const ctrlSaludo = fábrica.ctrlSaludo;
-      formSaludo.addEventListener("submit", async evt => {
+      forma.addEventListener("submit", async evt => {
         try {
           evt.preventDefault();
           const datos = new FormData(formSaludo);
