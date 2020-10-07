@@ -29,10 +29,10 @@
           const datos = new FormData(forma);
           const nombre = datos.get("nombre");
           const saludo = await ctrlSaludo.calculaSaludo(nombre);
-          formSaludo.salida.value = saludo;          
+          forma.salida.value = saludo;          
         } catch (error) {
           console.log(error);
-          formSaludo.salida.value = error.message;
+          forma.salida.value = error.message;
         }
       });
     </script>
