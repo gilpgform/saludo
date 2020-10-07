@@ -9,7 +9,7 @@ exports.handler = async event => {
     console.log("Devuelve", saludo);
     return {
       statusCode: 200,
-      body: saludo
+      body: saludo 
     };
   } catch (error) {
     console.error(error);
