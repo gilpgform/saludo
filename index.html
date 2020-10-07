@@ -26,7 +26,7 @@
       forma.addEventListener("submit", async evt => {
         try {
           evt.preventDefault();
-          const datos = new FormData(formSaludo);
+          const datos = new FormData(forma);
           const nombre = datos.get("nombre");
           const saludo = await ctrlSaludo.calculaSaludo(nombre);
           formSaludo.salida.value = saludo;          
